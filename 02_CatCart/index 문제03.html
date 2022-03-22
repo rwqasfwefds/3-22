@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 뷰 영역 -->
+    <div id="app">
+        <!-- 머가리 부분 -->
+        <header>
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <h1>{{sitename}}</h1>
+                </div>
+            </div>
+        </header>
+        <!-- 본문 -->
+        <!-- main = 본문 최상위(section보다 위) -->
+        <main>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <figure>
+                        <!-- 3. 객체의 이미지 주소를 바인딩해서 넣어주셈 -->
+                        <img>
+                    </figure>
+                </div> 
+
+                <div class="col-md-6 col-md-offset-2 description">
+                    <!-- v-text를 이용해서 product의 속성인 title을 연결 -->
+                    <h1></h1>
+                    <!-- v-text를 이용해서 product의 속성인 description 연결 -->
+                    <p></p>
+                    <!-- v-text를 이용해서 product의 속성인 price 연결 -->
+                    <p></p>
+                </div> 
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // console.log를 출력하는 함수
+        const APP_LOG_LIFE_CYCLE_EVENT = false;
+
+        let webstore = new Vue({
+            // 1. html 과 div 영역 연결
+            el : '#app',
+            data(){
+                return{
+                    sitename : 'Vue.js 애완용품 샵',
+                    product : 
+                    {
+                        id : 1001,
+                        title : '고양이 사료, 25파운드',
+                        description : '당신의 고양이를 위한 <em>거부 할 수 없는</em>, 유기농 25파운드 사료입니다.',
+                        price : 2000,
+                        image : './assete/images/product-fullsize.png'
+                    }
+                }
+            },
+
+            // 2. 라이프 사이클 등록
+            beforeCreate(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeCreate');
+                }
+            },
+            created(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('Created');
+                }
+            },
+            beforeMount(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeMount');
+                }
+            },
+            mounted(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('mounted');
+                }
+            },
+            beforeUpdate() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeUpdate');
+                }
+            },
+            updated(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('updated');
+                }
+            },
+            beforeDestroy() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeDestroy');
+                }
+            },
+            destroyed() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('destroyed');
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

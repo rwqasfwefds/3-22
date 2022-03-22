@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 뷰 영역 -->
+    <div id="app">
+        <header>
+            <h1>{{sitename}}</h1>
+        </header>
+    </div>
+
+    <script>
+        let webstore = new Vue({
+            // 1. html 과 div 영역 연결
+            // data : sitename => 'Vue.js 애완용품샵'
+
+            // 2. 라이프 사이클 등록
+            // beforecreate, created, befoermount, mounted,
+            // beforeupdate, updated, beforedestory, destoryed
+            // 그안에 각각 console.log('각 라이프 사이클 이름')
+            
+        });
+    </script>
+    
+</body>
+</html>

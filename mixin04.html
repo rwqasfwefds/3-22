@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <script>
+        // mixin 객체 생성
+        // 함수는 부모 우선
+        let myMixin = {
+            methods : {
+                foo(){
+                    console.log('foo')
+                },
+                conflicting(){
+                    console.log('mixin에서 conflicting 실행')
+                }
+            }
+        }
+
+        // 부모 뷰
+        let vm = new Vue({
+            mixins : [myMixin],
+            methods : {
+                bar(){
+                    console.log('bar')
+                },
+                // mixin과 중복 된 함수
+                conflicting(){
+                    console.log('Vue에서 conflicting 실행')
+                }
+            }
+        });
+
+        // mixin에서 만든 foo 함수 호출
+        vm.foo();
+        // Vue에서 만든 bar 함수 호출
+        vm.bar();
+        // Vue와 mixin에서 만든 conflicting 함수 호출
+        vm.conflicting();
+    </script>
+    
+</body>
+</html>

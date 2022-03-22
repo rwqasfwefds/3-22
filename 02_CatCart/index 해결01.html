@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 뷰 영역 -->
+    <div id="app">
+        <header>
+            <h1>{{sitename}}</h1>
+        </header>
+    </div>
+
+    <script>
+        // console.log를 출력하는 함수
+        const APP_LOG_LIFE_CYCLE_EVENT = false;
+
+        let webstore = new Vue({
+            // 1. html 과 div 영역 연결
+            el : '#app',
+            data(){
+                return{
+                    sitename : 'Vue.js 애완용품 샵'
+                }
+            },
+
+            // 2. 라이프 사이클 등록
+            beforeCreate(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeCreate');
+                }
+            },
+            // 다른 방법
+            // 탈출 할 것들은 앞에다가 적어주자
+            // 뒤에 쓰면 앞에 것들 다 연산 하고 탈출하니깐 비효율적임
+            // beforeCreate(){
+            //     if(APP_LOG_LIFE_CYCLE_EVENT == false){
+            //         return;
+            //     }
+            //     console.log('beforeCreate');
+            // },
+            created(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('Created');
+                }
+            },
+            beforeMount(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeMount');
+                }
+            },
+            mounted(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('mounted');
+                }
+            },
+            beforeUpdate() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeUpdate');
+                }
+            },
+            updated(){
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('updated');
+                }
+            },
+            beforeDestroy() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('beforeDestroy');
+                }
+            },
+            destroyed() {
+                if(APP_LOG_LIFE_CYCLE_EVENT == true){
+                    console.log('destroyed');
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
